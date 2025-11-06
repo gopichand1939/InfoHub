@@ -1,11 +1,11 @@
 import { useState } from "react";
-import axios from "axios";
+import { API } from "../api";
 
 function Quotes() {
   const [quote, setQuote] = useState("");
 
   const getQuote = async () => {
-    const res = await axios.get("http://localhost:5000/api/quote");
+    const res = await API.get("/api/quote");
     setQuote(res.data.quote);
   };
 

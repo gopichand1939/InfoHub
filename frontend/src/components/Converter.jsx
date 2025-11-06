@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import { API } from "../api";
 
 function Converter() {
   const [amount, setAmount] = useState("");
@@ -7,7 +7,7 @@ function Converter() {
 
   const convert = async () => {
     if (!amount.trim()) return;
-    const res = await axios.get(`http://localhost:5000/api/convert?amount=${amount}`);
+    const res = await API.get(`/api/convert?amount=${amount}`);
     setResult(res.data);
   };
 

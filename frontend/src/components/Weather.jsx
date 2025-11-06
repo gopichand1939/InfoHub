@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import { API } from "../api";
 
 function Weather() {
   const [city, setCity] = useState("");
@@ -12,7 +12,7 @@ function Weather() {
     setData(null);
 
     try {
-      const res = await axios.get(`http://localhost:5000/api/weather?city=${city}`);
+      const res = await API.get(`/api/weather?city=${city}`);
       setData(res.data);
     } catch {
       setError("City not found");
